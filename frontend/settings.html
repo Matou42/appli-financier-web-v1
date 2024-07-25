@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paramètres - Gestion Financière</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./styles/style.css"> <!-- Fichier CSS personnalisé -->
+</head>
+<body>
+
+<!-- Barre de navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Gestion Financière</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="dashboard.html">Tableau de bord</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="banque.html">Connexion banquaire</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="profile.html">Profil</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="parametres.html">Paramètres</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="help.html">Aide</a>
+      </li>
+      <li class="nav-item">
+        <button class="btn btn-danger ml-2" onclick="logout()">Déconnexion</button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Contenu principal -->
+<div class="container mt-4">
+  <div class="row">
+    <!-- Barre latérale -->
+    <div class="col-md-3">
+      <?php include './components/sidebar.html'; ?> <!-- Inclure votre barre latérale -->
+    </div>
+
+    <!-- Contenu des paramètres -->
+    <div class="col-md-9">
+      <div class="content">
+        <h1 class="mb-4">Paramètres</h1>
+
+        <!-- Section : Informations du compte -->
+        <section id="account-settings" class="mb-5">
+          <h2>Informations du compte</h2>
+          <form action="/update-account" method="POST">
+            <!-- Champ pour le nom -->
+            <div class="form-group">
+              <label for="nom">Nom complet :</label>
+              <input type="text" class="form-control" id="nom" name="nom" value="John Doe">
+            </div>
+
+            <!-- Champ pour l'adresse email -->
+            <div class="form-group">
+              <label for="email">Adresse email :</label>
+              <input type="email" class="form-control" id="email" name="email" value="john.doe@example.com">
+            </div>
+
+            <!-- Champ pour le mot de passe -->
+            <div class="form-group">
+              <label for="password">Nouveau mot de passe :</label>
+              <input type="password" class="form-control" id="password" name="password">
+              <small id="passwordHelpBlock" class="form-text text-muted">
+                Laissez ce champ vide pour ne pas modifier le mot de passe.
+              </small>
+            </div>
+
+            <!-- Champ pour la confirmation du mot de passe -->
+            <div class="form-group">
+              <label for="confirm-password">Confirmer le mot de passe :</label>
+              <input type="password" class="form-control" id="confirm-password" name="confirm-password">
+            </div>
+
+            <!-- Bouton de mise à jour -->
+            <button type="submit" class="btn btn-primary">Mettre à jour</button>
+          </form>
+        </section>
+
+        <!-- Section : Préférences utilisateur -->
+        <section id="preferences" class="mb-5">
+          <h2>Préférences utilisateur</h2>
+          <form action="/update-preferences" method="POST">
+            <!-- Choix de langue -->
+            <div class="form-group">
+              <label for="langue">Langue préférée :</label>
+              <select class="form-control" id="langue" name="langue">
+                <option value="fr" selected>Français</option>
+                <option value="en">Anglais</option>
+              </select>
+            </div>
+
+            <!-- Notifications -->
+            <div class="form-group">
+              <fieldset>
+                <legend>Notifications :</legend>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="newsletter" name="newsletter" checked>
+                  <label class="form-check-label" for="newsletter">
+                    Recevoir la newsletter
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="notifications" name="notifications">
+                  <label class="form-check-label" for="notifications">
+                    Recevoir les notifications par email
+                  </label>
+                </div>
+              </fieldset>
+            </div>
+
+            <!-- Thème -->
+            <div class="form-group">
+              <label for="theme">Thème :</label>
+              <select class="form-control" id="theme" name="theme">
+                <option value="light">Clair</option>
+                <option value="dark">Sombre</option>
+              </select>
+            </div>
+
+            <!-- Bouton de mise à jour -->
+            <button type="submit" class="btn btn-primary">Mettre à jour</button>
+          </form>
+        </section>
+
+        <!-- Section : Suppression de compte -->
+        <section id="delete-account">
+          <h2>Suppression de compte</h2>
+          <form action="/delete-account" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.');">
+            <!-- Champ pour la confirmation du mot de passe -->
+            <div class="form-group">
+              <label for="confirm-password">Confirmer le mot de passe :</label>
+              <input type="password" class="form-control" id="confirm-password" name="confirm-password">
+              <small id="passwordHelpBlock" class="form-text text-muted">
+                Pour supprimer votre compte, veuillez confirmer votre mot de passe.
+              </small>
+            </div>
+
+            <!-- Bouton de suppression -->
+            <button type="submit" class="btn btn-danger">Supprimer le compte</button>
+          </form>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Pied de page -->
+<footer class="bg-light text-center py-3 mt-4">
+  <p>Gestion Financière &copy; 2024. Tous droits réservés.</p>
+</footer>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  function logout() {
+    localStorage.removeItem('token'); // Supprimer le token JWT du localStorage
+    window.location.href = './login.html'; // Rediriger vers la page de connexion
+  }
+</script>
+
+</body>
+</html>

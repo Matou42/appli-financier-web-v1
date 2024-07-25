@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aide - Gestion Financière</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./styles/style.css"> <!-- Fichier CSS personnalisé -->
+</head>
+<body>
+
+<!-- Barre de navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Gestion Financière</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="dashboard.html">Tableau de bord</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="banque.html">Connexion banquaire</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="profile.html">Profil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="settings.html">Paramètres</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="help.html">Aide</a>
+      </li>
+      <li class="nav-item">
+        <button class="btn btn-danger ml-2" onclick="logout()">Déconnexion</button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Contenu principal -->
+<div class="container mt-4">
+  <div class="row">
+    <!-- Barre latérale -->
+    <div class="col-md-3">
+      <?php include './components/sidebar.html'; ?> <!-- Inclure votre barre latérale -->
+    </div>
+
+    <!-- Contenu de l'aide -->
+    <div class="col-md-9">
+      <div class="content">
+        <h1 class="mb-4">Aide - Gestion Financière</h1>
+
+        <!-- Section : Démarrage rapide -->
+        <section id="getting-started" class="mb-5">
+          <h2>Démarrage rapide</h2>
+          <p>Bienvenue dans l'aide de l'application Gestion Financière. Cette section vous guide à travers les étapes de base pour commencer à utiliser l'application.</p>
+          <ul class="list-unstyled">
+            <li><strong>Créer un compte :</strong> Pour utiliser toutes les fonctionnalités, vous devez d'abord créer un compte utilisateur.</li>
+            <li><strong>Se connecter :</strong> Utilisez vos identifiants pour vous connecter à l'application.</li>
+            <li><strong>Explorer le tableau de bord :</strong> Découvrez les informations principales affichées sur le tableau de bord.</li>
+          </ul>
+        </section>
+
+        <!-- Section : Fonctionnalités principales -->
+        <section id="features" class="mb-5">
+          <h2>Fonctionnalités principales</h2>
+          <p>Découvrez les principales fonctionnalités offertes par l'application Gestion Financière :</p>
+          <ul class="list-unstyled">
+            <li><strong>Gestion des transactions :</strong> Ajouter, modifier ou supprimer des transactions financières.</li>
+            <li><strong>Profil utilisateur :</strong> Modifier les informations de votre profil et vos préférences.</li>
+            <li><strong>Paramètres :</strong> Personnaliser les paramètres de l'application selon vos besoins.</li>
+          </ul>
+        </section>
+
+        <!-- Section : FAQ -->
+        <section id="faq">
+          <h2>FAQ</h2>
+          <p>Questions fréquemment posées sur l'utilisation de l'application :</p>
+          <dl>
+            <dt>Comment réinitialiser mon mot de passe ?</dt>
+            <dd>Pour réinitialiser votre mot de passe, cliquez sur "Mot de passe oublié" sur l'écran de connexion et suivez les instructions.</dd>
+            <dt>Comment exporter mes données ?</dt>
+            <dd>Allez dans les paramètres, puis sélectionnez l'option "Exporter mes données".</dd>
+            <dt>Comment contacter le support ?</dt>
+            <dd>Contactez notre équipe de support à <a href="mailto:contact.maxence2812@gmail.com">contact.maxence2812@gmail.com</a>.</dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Pied de page -->
+<footer class="bg-light text-center py-3 mt-4">
+  <p>Gestion Financière &copy; 2024. Tous droits réservés.</p>
+</footer>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  function logout() {
+    localStorage.removeItem('token'); // Supprimer le token JWT du localStorage
+    window.location.href = './login.html'; // Rediriger vers la page de connexion
+  }
+</script>
+
+</body>
+</html>

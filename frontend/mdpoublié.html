@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Réinitialiser le mot de passe</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+  <link rel="stylesheet" href="./styles/reset-password.css"> <!-- Fichier CSS externe -->
+</head>
+<body>
+  <div class="container">
+    <h2 class="text-center mb-4">Réinitialiser le mot de passe</h2>
+    <form id="resetPasswordForm" action="http://localhost:3000/api/auth/reset-password" method="POST">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Entrez votre email" required>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Envoyer</button>
+    </form>
+    <p class="text-center">Vous vous souvenez de votre mot de passe ? <a href="./login.html">Connectez-vous ici</a></p>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  <script src="./scripts/resetPassword.js"></script> <!-- Fichier JavaScript externe -->
+</body>
+</html>

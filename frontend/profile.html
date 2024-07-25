@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil - Gestion Financière</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./styles/style.css"> <!-- Fichier CSS personnalisé -->
+</head>
+<body>
+
+<div class="d-flex flex-column min-vh-100"> <!-- Conteneur principal flex -->
+  <!-- Barre de navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Gestion Financière</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="dashboard.html">Tableau de bord</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="banque.html">Connexion banquaire</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="profile.html">Profil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="settings.html">Paramètres</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="help.html">Aide</a>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-danger ml-2" onclick="logout()">Déconnexion</button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Contenu principal -->
+  <div class="container flex-grow-1 mt-4"> <!-- Ajouter flex-grow-1 ici -->
+    <div class="row">
+      <!-- Barre latérale -->
+      <div class="col-md-3">
+        <?php include './components/sidebar.html'; ?> <!-- Inclure votre barre latérale -->
+      </div>
+
+      <!-- Contenu du profil -->
+      <div class="col-md-9">
+        <div class="content">
+          <h1 class="mb-4">Profil - Gestion Financière</h1>
+
+          <!-- Section : Informations personnelles -->
+          <section id="personal-info" class="mb-5">
+            <h2>Informations personnelles</h2>
+            <form action="/update-profile" method="POST">
+              <!-- Champ pour le nom -->
+              <div class="form-group">
+                <label for="nom">Nom complet :</label>
+                <input type="text" class="form-control" id="nom" name="nom" value="John Doe">
+              </div>
+
+              <!-- Champ pour l'adresse email -->
+              <div class="form-group">
+                <label for="email">Adresse email :</label>
+                <input type="email" class="form-control" id="email" name="email" value="john.doe@example.com">
+              </div>
+
+              <!-- Champ pour le numéro de téléphone -->
+              <div class="form-group">
+                <label for="telephone">Numéro de téléphone :</label>
+                <input type="text" class="form-control" id="telephone" name="telephone" value="+123456789">
+              </div>
+
+              <!-- Bouton de mise à jour -->
+              <button type="submit" class="btn btn-primary">Mettre à jour</button>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pied de page -->
+  <footer class="bg-light text-center py-3 mt-auto">
+    <p>Gestion Financière &copy; 2024. Tous droits réservés.</p>
+  </footer>
+</div>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  function logout() {
+    localStorage.removeItem('token'); // Supprimer le token JWT du localStorage
+    window.location.href = './login.html'; // Rediriger vers la page de connexion
+  }
+</script>
+
+</body>
+</html>

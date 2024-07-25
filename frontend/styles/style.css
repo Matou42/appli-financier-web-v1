@@ -1,0 +1,54 @@
+/* Assurez-vous que le corps et le conteneur principal prennent toute la hauteur */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .d-flex {
+    display: flex !important;
+  }
+  
+  .flex-column {
+    flex-direction: column !important;
+  }
+  
+  .min-vh-100 {
+    min-height: 100vh !important;
+  }
+  
+  .flex-grow-1 {
+    flex-grow: 1 !important;
+  }
+  
+  .mt-auto {
+    margin-top: auto !important;
+  }
+  
+  /* Style personnalisé pour les sections */
+  section {
+    margin-bottom: 30px;
+  }
+  
+  section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  section p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  section ul {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  section ul li {
+    margin-bottom: 10px;
+  }
+  
+  section label {
+    font-weight: bold;
+  }  

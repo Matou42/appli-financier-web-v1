@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/fc0bcca8a3.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+  <link rel="stylesheet" href="./styles/login.css" />
+  <title>Formulaire de connexion/Inscription</title>
+</head>
+<body>
+  <div class="conteneur">
+    <div class="container" id="container">
+      <!-- frontend/login.html -->
+      <div class="form-container sign-up-container">
+        <form id="signupForm" action="http://localhost:3000/api/auth/signup" method="POST">
+          <h1>S'inscrire</h1>
+          <div class="social-container">
+            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <input type="text" name="name" placeholder="Name" />
+          <input type="email" name="email" placeholder="Email" />
+          <input type="password" name="password" placeholder="Password" />
+          <button type="submit">Inscription</button>
+        </form>
+      </div>
+      <div class="form-container sign-in-container">
+        <form id="loginForm" action="http://localhost:3000/api/auth/login" method="POST">
+          <h1>Se Connecter</h1>
+          <div class="social-container">
+            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <input type="email" id="loginEmail" name="email" placeholder="Email" />
+          <input type="password" id="loginPassword" name="password" placeholder="Password" />
+          <a href="./mdpoublié.html">Mot de passe oublié?</a>
+          <button type="submit">Connexion</button>
+        </form>
+      </div>
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <h1>Se connecter</h1>
+            <p>Vous avez déjà un compte ? Connectez-vous !</p>
+            <button class="ghost" id="signIn">Connexion</button>
+          </div>
+          <div class="overlay-panel overlay-right">
+            <h1>Créer un compte</h1>
+            <p>Êtes-vous nouveaux ? Créez votre compte et commencez votre aventure.</p>
+            <button class="ghost" id="signUp">Créer un compte</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <script src="./scripts/login.js"></script>
+  <script src="./scripts/notification.js"></script>
+  <!-- Inclure vos scripts JavaScript ici -->
+  <script>
+    // Gestionnaire d'événement pour le formulaire de connexion
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Empêcher l'envoi du formulaire par défaut
+      
+      // Récupérer les valeurs du formulaire
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+      
+      // Envoi de la requête POST vers /api/auth/login
+      fetch('http://localhost:3000/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password })
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Réponse après connexion :', data);
+        if (data.user) {
+          // Redirection vers le tableau de bord après connexion réussie
+          console.log('Redirection vers /dashboard');
+          window.location.href = './dashboard.html';
+        } else {
+          // Affichage des erreurs de connexion
+          console.error('Erreur de connexion:', data.error);
+          // Vous pouvez également afficher un message d'erreur à l'utilisateur ici
+          toastr.error('Erreur de connexion: ' + data.error);
+        }
+      })
+      .catch(error => {
+        console.error('Erreur lors de la connexion:', error);
+        toastr.error('Erreur lors de la connexion: ' + error.message);
+        // Gérer les erreurs réseau ou autres erreurs
+      });
+    });
+  </script>
+</body>
+</html>
