@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 
 // Remplacez vos identifiants Plaid ici
 const PLAID_CLIENT_ID = '669d08c15e3c0b001a9ef2f6';  // Remplacez par votre identifiant client Plaid
-const PLAID_SECRET = 'f1b4a345b66dd153d4b51ed95a81e1';        // Remplacez par votre secret Plaid
+const PLAID_SECRET = 'a6081230f046c8e59475dacf24356a';        // Remplacez par votre secret Plaid
 const PLAID_ENV = PlaidEnvironments.sandbox;     // Utilisez 'sandbox' ou 'development' ou 'production'
 
 const configuration = new Configuration({
@@ -52,7 +52,8 @@ app.post('/create_link_token', async (req, res) => {
     },
     client_name: 'Your App Name',
     products: ['auth', 'transactions'],
-    country_codes: ['US'],
+    country_codes: [
+      'US', 'CA', 'GB', 'FR', 'ES', 'IE', 'NL', 'DE', 'IT', 'PL', 'PT', 'SE', 'DK', 'NO', 'FI', 'BE', 'LT', 'LV', 'LU' ],
     language: 'en',
   };
 
