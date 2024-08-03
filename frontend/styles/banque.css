@@ -1,0 +1,63 @@
+/* Styles pour la page de connexion bancaire */
+
+body {
+  background-color: #f8f9fa; /* Couleur de fond claire */
+  font-family: Arial, sans-serif; /* Police de caractères */
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.card {
+  background-color: #ffffff; /* Fond blanc pour la carte */
+  border-radius: 8px; /* Bords arrondis */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  padding: 2rem;
+  max-width: 400px;
+  width: 100%;
+}
+
+.card h1 {
+  font-size: 2rem;
+  color: #343a40; /* Couleur du texte principal */
+  margin-bottom: 1rem;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #6c757d; /* Couleur du texte secondaire */
+  margin-bottom: 2rem;
+}
+
+.card button {
+  background-color: #007bff; /* Couleur du bouton */
+  color: #ffffff; /* Couleur du texte du bouton */
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card button:hover {
+  background-color: #0056b3; /* Couleur du bouton au survol */
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+  background-color: #f8f9fa;
+  color: #6c757d;
+  font-size: 0.875rem;
+}

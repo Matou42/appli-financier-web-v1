@@ -97,8 +97,8 @@
     
     button{
       border-radius: 20px;
-      border: 1px solid #ff4b2b;
-      background: #ff4b2b;
+      border: 1px solid #1961ab;
+      background: #1961ab;
       color: #fff;
       font-size: 12px;
       font-weight: bold;
@@ -151,8 +151,8 @@
       transition: transform 0.6s ease-in-out;
     }
     .overlay{
-      background: #ff416c;
-      background: linear-gradient(to right, #ff4b2b, #ff416c) no-repeat 0 0 / cover;
+      background: #1961ab;
+      background: linear-gradient(to right, #1961ab, #1961ab) no-repeat 0 0 / cover;
       color: #fff;
       position: relative;
       left: -100%;

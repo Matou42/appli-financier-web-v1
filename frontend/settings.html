@@ -54,42 +54,6 @@
       <div class="content">
         <h1 class="mb-4">Paramètres</h1>
 
-        <!-- Section : Informations du compte -->
-        <section id="account-settings" class="mb-5">
-          <h2>Informations du compte</h2>
-          <form action="/update-account" method="POST">
-            <!-- Champ pour le nom -->
-            <div class="form-group">
-              <label for="nom">Nom complet :</label>
-              <input type="text" class="form-control" id="nom" name="nom" value="John Doe">
-            </div>
-
-            <!-- Champ pour l'adresse email -->
-            <div class="form-group">
-              <label for="email">Adresse email :</label>
-              <input type="email" class="form-control" id="email" name="email" value="john.doe@example.com">
-            </div>
-
-            <!-- Champ pour le mot de passe -->
-            <div class="form-group">
-              <label for="password">Nouveau mot de passe :</label>
-              <input type="password" class="form-control" id="password" name="password">
-              <small id="passwordHelpBlock" class="form-text text-muted">
-                Laissez ce champ vide pour ne pas modifier le mot de passe.
-              </small>
-            </div>
-
-            <!-- Champ pour la confirmation du mot de passe -->
-            <div class="form-group">
-              <label for="confirm-password">Confirmer le mot de passe :</label>
-              <input type="password" class="form-control" id="confirm-password" name="confirm-password">
-            </div>
-
-            <!-- Bouton de mise à jour -->
-            <button type="submit" class="btn btn-primary">Mettre à jour</button>
-          </form>
-        </section>
-
         <!-- Section : Préférences utilisateur -->
         <section id="preferences" class="mb-5">
           <h2>Préférences utilisateur</h2>

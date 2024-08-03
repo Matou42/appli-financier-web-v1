@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirection</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="frontend/styles/index.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                window.location.href = "./frontend/login.html";
+            }, 3000); // Redirige après 3 secondes
+        });
+    </script>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+<div class="text-center">
+    <div class="loader mx-auto"></div>
+    <div class="mt-4 text-lg text-gray-700">Chargement, veuillez patienter...</div>
+</div>
+</body>
+</html>
