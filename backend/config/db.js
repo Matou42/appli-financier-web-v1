@@ -8,8 +8,8 @@ const connexion = require('./connexion-db.js'); // Assurez-vous que le chemin es
 // Création du pool de connexion MySQL
 const pool = mysql.createPool({
   host: 'localhost',
-  user: 'root',
-  database: 'gestion',
+  user: 'nom d'utilisateur,
+  database: 'nom de la db',
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0

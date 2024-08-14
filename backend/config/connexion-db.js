@@ -4,8 +4,8 @@ const mysql = require('mysql2');
 // Configuration de la connexion à la base de données
 const connection = mysql.createConnection({
   host: 'localhost', // Votre hôte MySQL
-  user: 'root', // Votre utilisateur MySQL
-  database: 'gestion' // Nom de votre base de données MySQL
+  user: 'nom d'utilisateur, // Votre utilisateur MySQL
+  database: 'nom de la db' // Nom de votre base de données MySQL
 });
 
 // Connexion à la base de données
