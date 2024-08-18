@@ -11,8 +11,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Remplacez vos identifiants Plaid ici
-const PLAID_CLIENT_ID = '669d08c15e3c0b001a9ef2f6';  // Remplacez par votre identifiant client Plaid
-const PLAID_SECRET = 'a6081230f046c8e59475dacf24356a';        // Remplacez par votre secret Plaid
+const PLAID_CLIENT_ID = 'identifiant plaid';  // Remplacez par votre identifiant client Plaid
+const PLAID_SECRET = 'Remplacer par votre secret plaid';        // Remplacez par votre secret Plaid
 const PLAID_ENV = PlaidEnvironments.sandbox;     // Utilisez 'sandbox' ou 'development' ou 'production'
 
 const configuration = new Configuration({
